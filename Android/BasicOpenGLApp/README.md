@@ -6,6 +6,69 @@ The *GLSurfaceView* class is used to initialize OpenGL and is reponsible for
 * Rendering on a background thread on an area of the screen known as a *surface/viewport* 
 * Offering helper methods to handle Android's Activity life cycle.
 
+*BasicOpenGLApp\app\src\main\java\com\gruprog\basicopenglapp\MainActivity.java*
+
+```java
+package com.gruprog.basicopenglapp;
+
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.ConfigurationInfo;
+import android.opengl.GLSurfaceView;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    private GLSurfaceView glSurfaceView;                            ----- 1
+    private boolean rendererSet = false;                            ----- 2
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        glSurfaceView = new GLSurfaceView(this);                    ----- 3
+
+        final boolean es2Supported = isES2Supported();              ----- 4
+
+        if(es2Supported) {
+            glSurfaceView.setEGLContextClientVersion(2);            ----- 5
+            glSurfaceView.setRenderer(new CustomRenderer());        ----- 6
+            rendererSet = true;
+        } else {
+            Toast.makeText(this, "OpenGL ES 2.0 is not supported on this device", Toast.LENGTH_LONG).show();        ----- 7
+        }
+
+        setContentView(glSurfaceView);                              ----- 8
+    }
+
+    private boolean isES2Supported() {
+        final ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);   ----- 9
+        final ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();               ----- 10
+
+        return configurationInfo.reqGlEsVersion >= 0x20000;                                                     ----- 11
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(rendererSet) {                       ----- 12
+            glSurfaceView.onResume();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if(rendererSet) {                       ----- 13
+            glSurfaceView.onPause();
+        }
+    }
+}
+```
+
 ### Creating a renderer
 
 Create a new renderer "CustomRenderer" that implements the *GLSurfaceView.Renderer* interface.
