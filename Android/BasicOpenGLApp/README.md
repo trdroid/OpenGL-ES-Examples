@@ -154,9 +154,9 @@ public class CustomRenderer implements GLSurfaceView.Renderer {
 
 1) Set the clear color by calling the static method *GLES20.glClearColor* with the following arguments
 
-* Strength of RED (R in RGB)
-* Strength of BLUE (B in RGB)
-* Strength of GREEN (G in RGB)
+* Intensity of RED (R in RGB)
+* Intensity of BLUE (B in RGB)
+* Intensity of GREEN (G in RGB)
 * Alpha value that represents the level of translucency and transparency
 
 2) Set the viewport size to specify to OpenGL the size of the surface that is available for rendering. Viewport size can be set by calling the static method *GLES20.glViewport*.
