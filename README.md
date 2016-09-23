@@ -2,7 +2,7 @@
 
 ### 3D Rendering
 
-*Rendering* is the process of generating a 2D image from 3D data. An image is composed of an array of rectangular dots called *pixels*. 
+*Rendering* is the process of generating a 2D image from 3D data. The generated image is composed of an array of rectangular dots called *pixels*. 
 
 The data containing information about 
 
