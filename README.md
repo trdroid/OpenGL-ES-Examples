@@ -28,7 +28,7 @@ More than one frame buffer can exist at any point in time. OpenGL ES can be conf
 
 The *front frame buffer* is the ONLY frame buffer which determines the pixel colors on the display. The pixel color elements values stored in the *front frame buffer* control the pixel colors on the display. 
 
-**Rendering directly into front frame buffer**
+*Rendering directly into front frame buffer*
 
 Rendering directly into the *front frame buffer* results in partially completed images being displayed while the rendering process progresses. 
 
