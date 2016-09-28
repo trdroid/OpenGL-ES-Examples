@@ -163,5 +163,7 @@ public class CustomRenderer implements GLSurfaceView.Renderer {
 
 3) Clear the screen by calling the static method *GLES20.glClear* to clear out all the colors on the screen and fill the screen with the colors specified in the call to *GLES20.glClearColor* earlier.
 
+### Screenshot
 
+![](_misc/Screenshot.png)
 
