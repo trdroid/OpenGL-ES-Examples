@@ -102,3 +102,12 @@ int main(int argc, char * argv[]) {
 	}
 }
 ```
+
+### Adding required frameworks
+
+![](_misc/Adding%20the%20required%20framework.png)
+
+![](_misc/Choosing%20the%20framework.png)
+
+![](_misc/After%20the%20framework%20is%20chosen.png)
+
